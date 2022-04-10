@@ -1,0 +1,22 @@
+<h3>Learning Angular</h3>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Active</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let item of employees">
+      <tr *ngIf="item.IsActive ">
+        <td [ngStyle]="{color: item.Name === 'Salman' ? 'red' : 'blue'}"> {{item.Name | lowercase}} </td>
+        <td (click)="emailClicked(item.Email)"> {{item.Email}} </td>
+        <td> {{item.IsActive}} </td>
+        <td>
+          <a [routerLink]="['employee-detail', item.Id]" >Details</a>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

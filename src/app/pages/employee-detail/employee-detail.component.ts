@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { catchError } from 'rxjs';
 import { Employee } from 'src/app/core/dtos/employee';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 
@@ -11,6 +12,7 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 export class EmployeeDetailComponent implements OnInit {
 
   employeeDetail: Employee = new Employee();
+  // employeeName = 'Tanvi';
 
   constructor(
     private employeeService: EmployeeService,
@@ -19,6 +21,14 @@ export class EmployeeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeDetail = this.employeeService.getEmployeeDetailsById(+this.router.snapshot.paramMap.get('id'));
+    this.employeeService.getOffers()
+      .subscribe( response => {
+        console.log(response);
+      })
+  }
+
+  childMethodInvoked(data: string) {
+    alert(data);
   }
 
 }

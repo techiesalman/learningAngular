@@ -5,3 +5,6 @@
   <p> {{employeeDetail.Email}} </p>
   <p> {{employeeDetail.IsActive}} </p>
 </div>
+
+<!--Child component data will come here-->
+<app-employee-department (childInvoked)="childMethodInvoked($event)" [employeeName]="employeeDetail.Name"></app-employee-department>

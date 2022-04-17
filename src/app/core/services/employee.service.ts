@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../dtos/employee';
+import {HttpClient} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,12 @@ export class EmployeeService {
     {Id: 5, Name: 'Nikesh', Email: 'nikesh@gmail.com', IsActive: false}
   ]
 
+  constructor(
+    private httpClient: HttpClient
+  ) {
+
+  }
+
   /**
    *
    * @returns lis of employees
@@ -24,6 +32,10 @@ export class EmployeeService {
 
   getEmployeeDetailsById(id: number) {
     return this.employees.find(x=> x.Id == id);
+  }
+
+  getOffers() {
+    return this.httpClient.get(`${environment.baseUrl}articles`);
   }
 
 }

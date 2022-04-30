@@ -28,7 +28,7 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   childMethodInvoked(data: string) {
-    alert(data);
+    console.table(data);
   }
 
 }

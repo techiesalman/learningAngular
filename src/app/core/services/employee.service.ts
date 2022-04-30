@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Employee } from '../dtos/employee';
 import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Posts } from '../dtos/post';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,10 @@ export class EmployeeService {
 
   getOffers() {
     return this.httpClient.get(`${environment.baseUrl}articles`);
+  }
+
+  postJsonPlaceHolderCall(post: Posts) {
+    return this.httpClient.post<Posts>("https://jsonplaceholder.typicode.com/posts", post);
   }
 
 }

@@ -8,6 +8,8 @@ import { EmployeeComponent } from './pages/employee/employee.component';
 import { EmployeeDetailComponent } from './pages/employee-detail/employee-detail.component';
 import { EmployeeDepartmentComponent } from './pages/employee-department/employee-department.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostComponent } from './pages/post/post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     TestComponent,
     EmployeeComponent,
     EmployeeDetailComponent,
-    EmployeeDepartmentComponent
+    EmployeeDepartmentComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
